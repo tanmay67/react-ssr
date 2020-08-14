@@ -2,13 +2,21 @@ import React, { useContext, useEffect } from 'react';
 import ToDoContext from '../context/ToDoList/toDoContext';
 import ToDoListItem from './ToDoListItem';
 
-const ToDoList = () => {
+const ToDoList = ({ data }) => {
   const toDoContext = useContext(ToDoContext);
-  const { loading, list, showList } = toDoContext;
+  const { loading, list, showList, dataFetch, fetchDataFun } = toDoContext;
 
   useEffect(() => {
     showList();
+    // fetchDataFun(data);
+    // if (data) {
+    //   fetchDataFun(data);
+    // }
   }, []);
+
+  // if (dataFetch !== null) {
+  //   console.log(dataFetch);
+  // }
 
   return (
     <div>

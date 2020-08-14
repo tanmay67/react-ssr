@@ -5,6 +5,7 @@ import {
   DELETE_CURRENT,
   ADD_ITEM,
   EDIT_ITEM,
+  FETCH_DATA,
 } from '../Types';
 
 export default (state, action) => {
@@ -46,6 +47,12 @@ export default (state, action) => {
         list: state.list.map((listItem) =>
           listItem.id === action.payload.id ? action.payload : listItem
         ),
+      };
+    case FETCH_DATA:
+      return {
+        ...state,
+        dataFetch: action.payload,
+        loading: false,
       };
     default:
       return state;

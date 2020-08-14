@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import React, { useState, useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import ToDoContext from '../context/ToDoList/toDoContext';
 
 const Home = () => {
+  const toDoContext = useContext(ToDoContext);
   const head = () => {
     return (
       <Helmet>

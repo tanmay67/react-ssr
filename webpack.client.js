@@ -1,7 +1,8 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-  target: 'node',
+  target: 'web',
   entry: './src/client.js',
   output: {
     filename: 'client_bundle.js',
@@ -29,5 +30,14 @@ module.exports = {
       },
     ],
   },
-  // mode: 'development',
+  mode: 'development',
+  stats: {
+    colors: true,
+  },
+  devtool: 'source-map',
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {},
+    }),
+  ],
 };

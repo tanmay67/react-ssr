@@ -6,6 +6,7 @@ import {
   DELETE_CURRENT,
   ADD_ITEM,
   EDIT_ITEM,
+  FETCH_DATA,
 } from '../Types';
 import ToDoContext from './toDoContext';
 import toDoReducer from './toDoReducer';
@@ -31,6 +32,7 @@ const ToDoState = (props) => {
     ],
     loading: true,
     current: null,
+    dataFetch: null,
   };
 
   const [state, dispatch] = useReducer(toDoReducer, initialState);
@@ -77,18 +79,27 @@ const ToDoState = (props) => {
     });
   };
 
+  const fetchDataFun = (dataList) => {
+    dispatch({
+      type: FETCH_DATA,
+      payload: dataList,
+    });
+  };
+
   return (
     <ToDoContext.Provider
       value={{
         list: state.list,
         loading: state.loading,
         current: state.current,
+        dataFetch: state.dataFetch,
         showList,
         deleteInfo,
         setCurrent,
         deleteCurrent,
         addListItem,
         editItem,
+        fetchDataFun,
       }}
     >
       {props.children}

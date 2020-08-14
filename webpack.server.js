@@ -31,5 +31,5 @@ module.exports = {
     ],
   },
   externals: [webpackNodeExternals()],
-  // mode: 'development',
+  mode: 'development',
 };
